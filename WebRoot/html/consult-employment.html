@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <script src="../file/jquery-3.2.1.js"></script>
+  <title>咨询职位</title>
+  <style type="text/css">
+    .title{
+      margin-bottom: 50px;
+    }
+    .send-email{
+      margin-bottom: 20px;
+      /*border:1px solid black;*/
+    }
+    .email-name,.email-psw,.recipient,.subject,.content{
+      border-radius: 5px;
+      border-style: groove; 
+      width: 250px;
+      height: 20px;
+    }
+    .content{
+      height: 50px;
+    }
+    .content-label{
+      vertical-align: top;
+    }
+    .signin,.signup,.consult-employment{
+      width: 100px;
+      height: 30px;
+      text-align: center;
+      line-height: 15px;
+      background-color: darkseagreen;
+      border-style: hidden;
+    }
+    .consult-employment-form{
+      text-align: center;
+      width: 500px;
+      margin: auto;
+      margin-top: 100px;
+    }
+    label{
+      width: 60px;
+      font-size: larger;
+      /*border:1px solid black;*/
+      display: inline-block;
+      text-align: center;
+    }
+    
+    .input-div{
+      text-align: center;
+      width: 500px;
+      margin: 30px auto 0 auto;
+    }
+    </style>
+</head>
+<body>
+ <div class="input-div">
+   <input type="button" class="signin" value="登录">
+   <input type="button" class="signup" value="注册">
+   <input type="button" class="consult-employment" value="咨询职位">
+ </div>
+ <form class="consult-employment-form">
+   <h2 class="title">咨询职位</h2>
+   <div class="send-email">
+     <label>邮箱号</label>
+     <input type="text" name="emailName" class="email-name">
+   </div>
+   <div class="send-email">
+     <label>密码</label>
+     <input type="password" name="emailPsw" class="email-psw">
+   </div>
+   <div class="send-email">
+     <label>收件人</label>
+     <input type="text" name="recipient" class="recipient">
+   </div>
+   <div class="send-email">
+     <label>主题</label>
+     <input type="text" name="subject" class="subject">
+   </div>
+   <div class="send-email">
+     <label class="content-label">内容</label>
+     <textarea name="content" class="content"></textarea>
+   </div>
+   <input type="button" class="send-email-btn" value="发送">
+ </form>
+ <script type="text/javascript">
+   $(document).ready(function(){
+    $('.send-email-btn').click(function(){
+      var params = {
+        emailName:  $(".email-name").val(),
+        emailPsw:   $(".email-psw").val(),
+        recipient:  $('.recipient').val(),
+        subject:    $('.subject').val(),
+        content:    $('.content').val()
+      };
+      $.ajax({
+        type: "POST",//请求方式为post
+        url: "sendEmail.action",//地址为请求的action(.action结尾)
+        data: params,//Ajax数据为所需要的参数
+        dataType:"text", //ajax返回值设置为text（json格式也可用它返回，可打印出结果，也可设置成json）
+        success: function(json){  //一般为成功
+        var obj = $.parseJSON(json);  //使用这个方法解析json
+        $('body').append(`<p>${obj.msg}</p>`);
+        },
+        error: function(json){//失败
+        }
+     });
+      return false;
+    });
+    $('.consult-employment').click(function(){
+      return false;
+    });
+    $('.signup').click(function(){
+      location.href='./signup.html';
+      return false;
+    });
+    $('.signin').click(function(){
+      location.href='../index.html';
+      return false;
+    });
+  });
+ </script>
+</body>
+</html>

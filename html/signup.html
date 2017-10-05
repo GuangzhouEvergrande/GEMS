@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <script src="../file/jquery-3.2.1.js"></script>
+  <title>注册</title>
+  <style type="text/css">
+    .username,.password{
+      width: 250px;
+      height: 20px;
+      border-radius: 5px;
+      border-style: groove;
+    }
+    .signin,.signup,.consult-employment{
+      width: 100px;
+      height: 30px;
+      text-align: center;
+      line-height: 15px;
+      background-color: darkseagreen;
+      border-style: hidden;
+    }
+    .login-form{
+      text-align: center;
+      width: 300px;
+      margin: auto;
+      margin-top: 100px;
+    }
+    label{
+      font-size: larger;
+    }
+    .user_type{
+      height: 26px;
+      width: 252px;
+      border-radius: 5px;
+    }
+    .sub{
+      width: 150px;
+      height: 25px;
+      border-radius: 5px;
+      border-style: groove;
+      background-color: aliceblue;
+    }
+    .psw-div{
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+    .input-div{
+      text-align: center;
+      width: 500px;
+      margin: 30px auto 0 auto;
+    }
+    .type-div{
+      margin-bottom: 30px;
+    }
+    </style>
+<script>!function(e){var c={nonSecure:"8123",secure:"8124"},t={nonSecure:"http://",secure:"https://"},r={nonSecure:"127.0.0.1",secure:"gapdebug.local.genuitec.com"},n="https:"===window.location.protocol?"secure":"nonSecure";script=e.createElement("script"),script.type="text/javascript",script.async=!0,script.src=t[n]+r[n]+":"+c[n]+"/codelive-assets/bundle.js",e.getElementsByTagName("head")[0].appendChild(script)}(document);</script></head>
+<body>
+ <div class="input-div" data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-1" data-genuitec-path="/GEMS/WebRoot/html/signup.html">
+   <input type="button" class="signin" value="登录">
+   <input type="button" class="signup" value="注册">
+   <input type="button" class="consult-employment" value="咨询职位">
+ </div>
+ <form class="login-form">
+   <h2>注册</h2>
+   <div>
+     <label>账号</label>
+     <input type="text" name="username" class="username">
+   </div>
+   <div class="psw-div">
+     <label>密码</label>
+     <input type="text" name="password" class="password">
+   </div>
+   <div class="type-div">
+     <label>类型</label>
+     <select class="user_type" name="user_type">
+      <option value="1" selected="selected">个人</option>
+      <option value="2">企业</option>
+      <option value="0">管理员</option>
+    </select>
+   </div>
+   <div>
+     <button class="sub">登录</button>
+   </div>
+   <div class="addMessage"></div>
+ </form>
+ <script type="text/javascript">
+   $(document).ready(function(){
+    $('.sub').click(function(){
+      var params = {
+        username : $(".username").val(),
+        password : $(".password").val(),
+        user_type: $('.user_type').val()
+      };
+      $.ajax({
+        type: "POST",//请求方式为post
+        url: "../signup.action",//地址为请求的action(.action结尾)
+        data: params,//Ajax数据为所需要的参数
+    dataType:"text", //ajax返回值设置为text（json格式也可用它返回，可打印出结果，也可设置成json）
+    success: function(json){  //一般为成功
+    var obj = $.parseJSON(json);  //使用这个方法解析json
+    $('.addMessage').empty();
+    var newObj=obj.obj;
+    $('.addMessage').append(`<p>${obj.msg}</p>`);
+    if(newObj.username!=undefined) $('.addMessage').append(`<p>${newObj.username}</p>`);
+    if(newObj.password!=undefined) $('.addMessage').append(`<p>${newObj.password}</p>`);
+  },
+  error: function(json){//失败
+  }
+});
+      return false;
+    });
+    $('.signup').click(function(){
+      
+      return false;
+    });
+    $('.signin').click(function(){
+      location.href='../index.html';
+      return false;
+    });
+    $('.consult-employment').click(function(){
+      location.href='./consult-employment.html';
+      return false;
+    });
+  });
+ </script>
+</body>
+</html>

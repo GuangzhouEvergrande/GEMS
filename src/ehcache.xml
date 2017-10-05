@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+  <diskStore path="java.io.tmpdir"/>
+  <defaultCache
+        maxElementsInMemory="10000"   
+        eternal="false"               
+        overflowToDisk="true"
+        timeToIdleSeconds="120"
+        timeToLiveSeconds="120"
+        diskPersistent="false"/>
+        
+</ehcache>
+<!-- maxElementsInMemory设置缓存中最多可以存放多少个对象 -->
+<!-- eternal设置缓存是否永久有效 -->
+<!-- overflowToDisk -->
+<!-- timeToIdleSeconds设置缓存的对象多少秒没有被使用就会被清理掉 -->
+<!-- timeToLiveSeconds设置缓存的对象在过期前可以缓存多久秒 -->
+<!-- diskPersistent设置缓存是否被持久化到硬盘中 -->
