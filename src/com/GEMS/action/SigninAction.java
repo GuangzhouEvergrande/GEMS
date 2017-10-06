@@ -6,6 +6,8 @@ package com.GEMS.action;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.GEMS.JSON.SetJsonValue;
+import com.GEMS.JSON.USER.SetObjUserValue;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -22,6 +24,7 @@ public class SigninAction extends ActionSupport {
 	/* (non-Javadoc)
 	 * @see com.opensymphony.xwork2.ActionSupport#execute()
 	 * 默认执行的方法
+	 * 不一定执行
 	 */
 	@Override
 	public String execute() throws Exception {
@@ -29,10 +32,15 @@ public class SigninAction extends ActionSupport {
 		return SUCCESS;
 	}
 	
-	
+	/* (non-Javadoc)
+	 * @see com.opensymphony.xwork2.ActionSupport#executeSignin()
+	 * struts2指定执行的方法
+	 * 一定执行
+	 */
 	public String executeSignin() throws Exception{
 		map=new HashMap<String, Object>();
-		map.put("123", 1);
+		SetJsonValue setJsonValue=new SetJsonValue(username,user_type);
+		map=setJsonValue.getJsonData();
 		System.out.println("执行了executeSignin方法");
 		return SUCCESS;
 	}
