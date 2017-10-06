@@ -98,28 +98,10 @@
         data: params,//Ajax数据为所需要的参数
     dataType:"text", //ajax返回值设置为text（json格式也可用它返回，可打印出结果，也可设置成json）
     success: function(json){  //一般为成功
-    var obj = $.parseJSON(json);  //使用这个方法解析json
-    $('.addMessage').empty();
-    var newObj=obj.obj;
-    $('.addMessage').append(`<p>${obj.msg}</p>`);
-    if(newObj.username!=undefined) $('.addMessage').append(`<p>${newObj.username}</p>`);
-    if(newObj.password!=undefined) $('.addMessage').append(`<p>${newObj.password}</p>`);
   },
   error: function(json){//失败
   }
 });
-      return false;
-    });
-    $('.signup').click(function(){
-      location.href='./html/signup.html';
-      return false;
-    });
-    $('.consult-employment').click(function(){
-      location.href='./html/consult-employment.html';
-      return false;
-    });
-    $('.signin').click(function(){
-      
       return false;
     });
   });

@@ -1,4 +1,4 @@
-package com.sessionFactory;
+package com.GEMS.SessionFactory;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
