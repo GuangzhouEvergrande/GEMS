@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.GEMS.JSON.SetJsonValue;
 import com.GEMS.JSON.USER.SetObjUserValue;
+import com.GEMS.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -38,10 +39,10 @@ public class SigninAction extends ActionSupport {
 	 * 一定执行
 	 */
 	public String executeSignin() throws Exception{
-		map=new HashMap<String, Object>();
-		SetJsonValue setJsonValue=new SetJsonValue(username,user_type);
-		map=setJsonValue.getJsonData();
+		UserService userService=new UserService(username,password,user_type);
+		map=userService.doSignin();
 		System.out.println("执行了executeSignin方法");
+		System.out.println(map);
 		return SUCCESS;
 	}
 	
