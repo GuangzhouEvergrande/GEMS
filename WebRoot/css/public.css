@@ -1,0 +1,15 @@
+.signin,.signup,.consult-employment,.personal-space{
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  line-height: 15px;
+  background-color: darkseagreen;
+  border-style: hidden;
+  cursor: pointer;
+}
+
+.input-div{
+  text-align: center;
+  width: 500px;
+  margin: 30px auto 0 auto;
+}

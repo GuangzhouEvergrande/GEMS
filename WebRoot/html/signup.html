@@ -3,16 +3,17 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script src="./file/jquery-3.2.1.js"></script>
-    <script src="./js/public.js"></script>
-    <script src="./js/index.js"></script>
-    <title>登录</title>
-    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <script src="../file/jquery-3.2.1.js"></script>
+    <script src="../js/public.js"></script>
+    <script src="../js/signup.js"></script>
+    <title>注册</title>
+    <link rel="stylesheet" type="text/css" href="../css/signup.css">
+    <link rel="stylesheet" type="text/css" href="../css/public.css">
 </head>
 
 <body>
-    <form class="login-form">
-        <h2>登录</h2>
+    <form class="signup-form">
+        <h2>注册</h2>
         <div>
             <label>账号</label>
             <input type="text" name="username" class="username">
@@ -20,6 +21,10 @@
         <div class="psw-div">
             <label>密码</label>
             <input type="text" name="password" class="password">
+        </div>
+        <div class="name-div">
+            <label>昵称</label>
+            <input type="text" name="name" class="name">
         </div>
         <div class="type-div">
             <label>类型</label>
@@ -30,7 +35,7 @@
             </select>
         </div>
         <div>
-            <button class="sub">登录</button>
+            <button class="sub">注册</button>
         </div>
         <div class="addMessage"></div>
     </form>

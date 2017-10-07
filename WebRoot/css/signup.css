@@ -1,0 +1,39 @@
+.username,.password,.name{
+  width: 250px;
+  height: 20px;
+  border-radius: 5px;
+  border-style: groove;
+}
+.user_type{
+  width: 255px;
+  height: 26px;
+  border-radius: 4px;
+}
+
+.signup-form{
+  text-align: center;
+  width: 300px;
+  margin: auto;
+  margin-top: 100px;
+}
+label{
+  font-size: larger;
+}
+.sub{
+  width: 150px;
+  height: 25px;
+  border-radius: 5px;
+  border-style: groove;
+  background-color: aliceblue;
+}
+.psw-div{
+  margin-top: 15px;
+}
+
+.type-div{
+  text-align: left;
+}
+
+.name-div,.type-div,.psw-div{
+	margin-bottom: 15px;
+}
